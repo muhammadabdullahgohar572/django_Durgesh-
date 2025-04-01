@@ -10,3 +10,14 @@ class Emp(models.Model):
 
     def __str__(self):
         return f'This is an Employee named {self.name} and Department is {self.department}'
+
+
+class Testimonial(models.Model):
+    name=models.CharField(max_length=200)
+    testimonial=models.TextField();
+    picture=models.ImageField(upload_to="testimonial/")
+    rating=models.IntegerField(max_length=2)
+    
+    def __str__(self):
+        return self.testimonial
+    
