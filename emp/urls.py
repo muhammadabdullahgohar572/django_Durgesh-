@@ -25,6 +25,7 @@ urlpatterns = [
     path('emp_updated/<int:emp_id>/',views.emp_updated),
     path('to_Updated/<int:emp_id>/',views.to_Updated),
     
+    path('Testimonial/',views.Testimonial),
     
     
 ]

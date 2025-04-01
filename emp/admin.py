@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Emp
+from .models import Emp,Testimonial
 # Register your models here.
 
 
@@ -12,3 +12,5 @@ class showEmployeeData(admin.ModelAdmin):
     list_filter=('working',);   
  
 admin.site.register(Emp,showEmployeeData)
+admin.site.register(Testimonial)
+

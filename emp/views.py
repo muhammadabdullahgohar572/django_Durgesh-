@@ -71,3 +71,8 @@ def to_Updated(request,emp_id):
         e.save()
    
         return redirect("/emp/Home/")
+    
+    
+    
+def Testimonial(request):
+    return HttpResponse("adjskljslak")
