@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Page</title>
+  </head>
+  <body>
+    {% include 'Nav.html' %}
+
+    <h1>This is an About page</h1>
+       
+    {% if is_Active %}
+     <form action="/About/" method="POST">
+      {% csrf_token %}
+      <input type="text" placeholder="Search anything" name="check">
+      <button type="submit">Submit</button>
+     </form>
+
+      {% if check %}
+        <h3>User Entered: {{ check }}</h3>  <!-- ✅ Display user input -->
+      {% endif %}
+
+      <h2>Current Date & Time: {{ date }}</h2>
+      <h2>School Name is : {{ name }}</h2>
+        
+      <h2>Students Data:</h2>
+      <ul>
+        <li><b>School:</b> {{ students.School }}</li>
+        <li><b>College:</b> {{ students.College }}</li>
+        <li><b>University:</b> {{ students.University }}</li>
+      </ul>
+    {% else %}
+      <p>Data is not available.</p>
+    {% endif %}
+  </body>
+</html>
