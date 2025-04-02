@@ -20,4 +20,12 @@ class Testimonial(models.Model):
     
     def __str__(self):
         return self.testimonial
-    
+ 
+class Feedback(models.Model):
+    email = models.EmailField()
+    name = models.CharField(max_length=200)
+    feedback = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Feedback from {self.name} ({self.email})"    

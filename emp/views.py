@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse  # Import HttpResponse
-from .models import Emp
+from .models import Emp,Testimonial
+
+from .form import FeedBackForms
 
 # Create your views here.
 
@@ -74,5 +76,20 @@ def to_Updated(request,emp_id):
     
     
     
-def Testimonial(request):
-    return HttpResponse("adjskljslak")
+def Testimonials(request):
+    testi=Testimonial.objects.all()
+    return render(request,"emp/testimonial.html",{"testi":testi})
+
+
+
+
+def feedback(request):
+    if request.method == "POST":
+        form = FeedBackForms(request.POST)
+        if form.is_valid():
+            form.save()  # This will now work because it's a ModelForm
+            return redirect('/emp/Home/')
+    else:
+        form = FeedBackForms()
+    
+    return render(request, "emp/feedback.html", {"form": form})
